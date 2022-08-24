@@ -3,18 +3,6 @@
   pageRef = "/"
   weight = 10
 
-[[main]]
-  name = "About us"
-  pageRef = "about"
-  weight = 20
-
-[[main]]
-  name = "History"
-  pageRef = "history"
-  weight = 30
-
-
-
 [[footer]]
   name = "Facebook"
   url = "https://facebook.com"
