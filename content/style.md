@@ -11,4 +11,4 @@ Ch’ang nagymester bizonyos értelemben megelőzte korát, hiszen olyan harcmű
 
 A Ch’ang stílusú shaolin kung fu 1982 óta van jelen Magyarországon, **Zsoldos Zoltán**nak köszönhetően. Stílusvezető mesterünk **Koszogovits Mihály**, szakmai irányítónk **Detlef Leppkes** nagymester. A stílushoz tartozó iskolákat a **Shaolin Kung Fu Association Hungary (SKAH)* ernyőszervezetként fogja össze.
 
-Stílusalapító nagymesterünk, Ch’ang Tung Sheng életéről itt írtunk. Magyarországi stílusvezető mesterünk, Koszogovits Mihály eredményei [innen](./docs/Koszogovits-Mihaly-szakmai-tevekenysege.pdf) tölthetők le.
+Stílusalapító nagymesterünk, Ch’ang Tung Sheng életéről itt írtunk. Magyarországi stílusvezető mesterünk, Koszogovits Mihály eredményei [innen](/docs/Koszogovits-Mihaly-szakmai-tevekenysege.pdf) tölthetők le.
