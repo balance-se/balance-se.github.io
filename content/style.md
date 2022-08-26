@@ -2,7 +2,7 @@
 title: "Ch'ang stílus"
 weight: 25
 menu: "main"
-layout: simple
+showDate: false
 ---
 
 Egyesületünk a **Ch’ang Tung Sheng nagymester** által megalkotott kung-fu stílust gyakorolja. Ch’ang nagymester a hagyományos kínai birkózás, a **shuai chiao** elismert mestere volt már, mire megalkotta saját kung-fu stílusát, amelyet – nem meglepő módon – az esések és dobások hangsúlya jellemez. Ez olyan jellegzetesség, amely igen kevés egyéb kung-fu stílus sajátja.
@@ -11,4 +11,4 @@ Ch’ang nagymester bizonyos értelemben megelőzte korát, hiszen olyan harcmű
 
 A Ch’ang stílusú shaolin kung fu 1982 óta van jelen Magyarországon, **Zsoldos Zoltán**nak köszönhetően. Stílusvezető mesterünk **Koszogovits Mihály**, szakmai irányítónk **Detlef Leppkes** nagymester. A stílushoz tartozó iskolákat a **Shaolin Kung Fu Association Hungary (SKAH)* ernyőszervezetként fogja össze.
 
-Stílusalapító nagymesterünk, Ch’ang Tung Sheng életéről itt írtunk. Magyarországi stílusvezető mesterünk, Koszogovits Mihály eredményei [innen](../assets/docs/Koszogovits-Mihaly-szakmai-tevekenysege.pdf) tölthetők le.
+Stílusalapító nagymesterünk, Ch’ang Tung Sheng életéről itt írtunk. Magyarországi stílusvezető mesterünk, Koszogovits Mihály eredményei [innen](./docs/Koszogovits-Mihaly-szakmai-tevekenysege.pdf) tölthetők le.
