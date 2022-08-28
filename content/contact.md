@@ -5,8 +5,6 @@ menu: "main"
 showDate: false
 ---
 
-E-mail:
-{{< cloakemail address="mail@gmail.com" protocol="email" >}}
+{{< icon email >}} E-mail: mail@gmail.com
 
-Telefon:
-{{< cloakemail address="+1 212 664-7665" protocol="tel" >}}
+{{< icon whatsapp >}} Telefon: +1 212 664-7665
