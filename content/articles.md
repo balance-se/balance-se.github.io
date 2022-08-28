@@ -1,7 +1,7 @@
 ---
-title: "Cikkek"
+#title: "Cikkek"
 weight: 40
-menu: "main"
+#menu: "main"
 layout: simple
 ---
 todo

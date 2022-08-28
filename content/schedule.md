@@ -12,24 +12,11 @@ Szegedi Tudományegyetem Sportközpont, Hattyas sor 10., tükrös terem
 {{< hattyas-iframe >}}
 
 ## Időpontok
-|        | Gyermek | Felnőtt | Küzdelmi / verseny |
-| ------ | ------- | ------- | ------------------ |
-| Kedd   | 17-18   | 18-20   |                    |
-| Szerda |         |         | 18-19:30           |
-| Péntek | 17-18   | 18-20   |                    |
-
-### Gyermekcsoport
-Kedd 17-18
-
-Péntek 17-18
-
-### Felnőtt csoport
-Kedd 18-20
-
-Péntek 18-20
-
-### Küzdelmi edzés (haladóknak)
-Szerda 18-19:30
+|                        | Kedd  | Szerda   | Péntek |
+| ---------------------- | ----- | -------- | ------ |
+| **Gyermek**            | 17-18 |          | 17-18  |
+| **Felnőtt**            | 18-20 |          | 18-20  |
+| **Küzdelmi / verseny** |       | 18-19:30 |        |
 
 ## Szükséges felszerés
 
