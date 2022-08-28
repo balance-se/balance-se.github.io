@@ -1,0 +1,12 @@
+name: Deploy Hugo site to Dev Envionment
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["develop"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder
+        run: exit 0
