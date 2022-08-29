@@ -8,8 +8,8 @@ showDate: false
 {{< icon email >}}  **E-mail:**
 {{< cloakemail address="balancekungfu@gmail.com" protocol="email" >}}
 
-**Telefon:**
-{{< icon whatsapp >}} {{< cloakemail address="+36 20 475 0808" protocol="tel" >}}
+{{< icon whatsapp >}}  **Telefon:**
+{{< cloakemail address="+36 20 475 0808" protocol="tel" >}}
 
 |              |                                |
 | ------------ | ------------------------------ |
@@ -23,4 +23,4 @@ showDate: false
 Ha még nem rendelkeztél az személyi jövedelem adód 1%-áról, a leggyorsabban itt tudod megtenni:
 https://eszja.nav.gov.hu/app/#dashboard
 
-Ahogyan azt a mondás is tartja: sok kicsi sokra megy. A felajánlásokat Köszönjük!
+Ahogyan azt a mondás is tartja: sok kicsi sokra megy; Köszönjük, hogy hozzájárulsz az egyesület működéstetéséhez!
