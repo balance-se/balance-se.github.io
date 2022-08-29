@@ -18,7 +18,7 @@ Szegedi Tudományegyetem Sportközpont, Hattyas sor 10., tükrös terem
 | **Felnőtt**            | 18:00 - 19:30 |               | 18:00 - 19:30 |
 | **Küzdelmi / verseny** |               | 18:00 - 19:30 |               |
 
-## Szükséges felszerés
+## Szükséges felszerelés
 
 - rövidujjú sötét póló
 - hosszú nadrág
