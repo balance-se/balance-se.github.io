@@ -1,6 +1,7 @@
 ---
 title: 20 éve működünk
 date: 2022-08-29
+draft: true
 ---
 
 todo: write this article
