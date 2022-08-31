@@ -15,5 +15,8 @@ Run the project with
 hugo serve
 ```
 
-## Develolment workflow
-Develop test
+## To clean moddules in case of strange issues
+
+```
+hugo mod clean
+```
