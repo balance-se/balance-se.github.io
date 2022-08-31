@@ -8,4 +8,4 @@ Az oldalon található cikkek szabadon felhasználhatók, de kérjük oldalunk m
 
 Az oldalon található fényképeket Eötvös Csaba készítette, felhasználásuk kizárólag a szerző és a modell(ek) előzetes írásos engedélyével lehetséges!
 
-A honlapot a Balance SE tagjai szerkesztik.
+A honlapot a Balance Kung Fu SE tagjai szerkesztik.

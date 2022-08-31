@@ -3,7 +3,7 @@ title: Ch’ang Tung Sheng nagymester
 date: 2017-10-10
 ---
 
-{{< figure src="chang-tung-scheng_pose-1.jpg" alt="Fiatal Ch'ang Tung Sheng" caption="Fiatal Cha'ang Tung Sheng" class="center_scaled" >}}
+{{< figure src="chang-tung-scheng_pose-1.jpg" alt="Fiatal Ch'ang Tung Sheng" caption="Fiatal Cha'ang Tung Sheng" >}}
 
 Stílusalapító mesterünk, Ch’ang Tung Sheng 1908-ban (más forrás szerint 1905-ben) született  a Kína északi részén fekvő Hopej (Hebei) tartományban, Paoting (Baoding) városában és már gyermekkorában megkezdte a harcművészetek gyakorlását. Családja az etnikailag a han kínaiakhoz hasonló, ám a muszlim hitet és szokásokat követő hui népcsoportba tartozott. A család kifőzdét tartott fenn, egyik üzleti partnerük, Zhang Feng Yan pedig történetesen nem csak a kereskedelemben, hanem a shuai chiaóban is sikeres és elismert volt – őt tartják a shuai chiao paotingi ága legnagyobb XX. századi mesterének.  Zhang úr előszeretettel fogadta fel ismerősei gyermekeit a birtokán előforduló kisebb-nagyobb munkák ellátására, egyúttal pedig shuai chiaóra is tanítgatta őket. Nagymesterünk is nála kezdte el a munkát és a tanulást hét éves korában.
 

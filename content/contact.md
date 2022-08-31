@@ -1,6 +1,6 @@
 ---
 title: "Kapcsolat"
-weight: 50
+weight: 60
 menu: "main"
 showDate: false
 ---
