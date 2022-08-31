@@ -38,4 +38,3 @@ A kung-fu egyik legnagyobb szépsége, hogy a szorgalmas, rendszeres munka mindi
 Közhely, de igaz: minden gyerek egyéniség, van, aki már óvodásként vagy kisiskolásként rendelkezik azokkal a tulajdonságokkal – fegyelem, figyelem, koncentrációs képesség -, amelyek a kung-fu magasabb szintű gyakorlásához szükségesek. Ők, amennyiben szeretnék, egy idő után csatlakozhatnak a felnőttekhez és sok gyakorlás után, megfelelő elhivatottság esetén a versenyzői karrier felé is kacsingathatnak.
 
 Nem hiszünk abban, hogy mindenkinek versenyzőnek kell lennie. Nagyon örülünk, ha valaki felfedezi magában azt az eltökéltséget, monotóniatűrést, szorgalmat, ami erre a nem ritkán lemondásokat igénylő útra irányítja, de az is ugyanolyan értékes tagja lehet a csapatunknak, aki  „csupán” edzésekre jár és velünk gyakorol, a maga örömére edz, fejlődik.
-

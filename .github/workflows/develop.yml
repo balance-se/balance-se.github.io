@@ -1,12 +1,14 @@
-name: Deploy Hugo site to Dev Envionment
+name: pre-commit
 
 on:
   # Runs on pushes targeting the default branch
+  pull_request:
   push:
     branches: ["develop"]
 jobs:
-  test:
+  pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Placeholder
-        run: exit 0
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+    - uses: pre-commit/action@v3.0.0

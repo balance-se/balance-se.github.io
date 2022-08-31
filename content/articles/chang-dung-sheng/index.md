@@ -28,4 +28,3 @@ Nagymesterünk a cikk elején említett kulturális okok miatt nagyon lassan tan
 A nagymester 1986-ban hunyt el nyelőcsőrákban. A tajpeji muszlim temetőben nyugszik.
 
 *A cikk a https://jetli.com, a https://combatshuaichiao.com, a https://kungfu.org és a https://changshuaichiao.org egykori weboldalak anyagainak felhasználásával készült.*
-
