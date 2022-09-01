@@ -1,15 +1,12 @@
 [[main]]
-  pageRef = "/"
-  weight = 10
+pageRef = "/"
+weight = 10
+
+# [[footer]]
+# name = "{{< icon facebook >}} Facebook"
+# url = "https://facebook.com"
+
 
 [[footer]]
-  name = "{{< icon facebook >}} Facebook"
-  url = "https://facebook.com"
-
-
-[[footer]]
-  name = "{{< icon discord >}} Discord"
-  url = "https://discord.gg/M4AgESXB"
-
-[[footer]]
-  name = "{{< icon instagram >}} Instagram"
+name = "{{< icon discord >}} Discord"
+url = "https://discord.gg/M4AgESXB"

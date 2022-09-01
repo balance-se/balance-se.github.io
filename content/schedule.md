@@ -29,7 +29,7 @@ Az edzések mezitlábasan történnek és ez az ajánlott, ez alól kivételek a
 illetve ha valamilyen egészségügyi probléma áll fent.
 
 ## Első edzés
-Várunk minden kedves érdeklődőt, a tagfelvétel folyamatos. Az első edzés díjmentes, melyre célszerű edzésre alkalmas öltözetben megjelenni és ezt követően lehetőség nyílik a Mesterrel egyeztetni a további lépésekről.
+Várunk minden kedves érdeklődőt, a tagfelvétel folyamatos. Az első edzés díjmentes, melyen célszerű edzésre alkalmas öltözetben megjelenni és ezt követően lehetőség nyílik a Mesterrel egyeztetni a további lépésekről és lehetőségekről.
 
 ## Edzésekről
 Csapatunkat tapasztalt kung-fu szakedzők vezetik. A gyakorlások során a sérülésveszély csökkentése érdekében nagyon sok figyelmet fordítunk a megfelelő bemelegítésre és a levezetésre. A közös bemelegítés után övfokozat szerinti csoportbontásban gyakoroljuk a kung-fu technikákat, így mindenki a tudásszintjének, képességeinek megfelelő terhelést kapja. Nem szétszaggatni, tönkretenni akarjuk magunkat, hanem okosan, minőségi edzéssel fejleszteni a mozgáskoordinációnkat, erőnlétünket, állóképességünket, ügyességünket. Máshogyan foglalkozunk a kisgyermekekkel, a serdülőkkel, az erejük teljében levő felnőttekkel és azokkal, akik már túljutottak a fizikai teljesítőképességük csúcsán, hiszen az a célunk, hogy mindenki valós célokat és elvárásokat fogalmazzon meg magának – és érje is el azokat!
