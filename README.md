@@ -1,6 +1,7 @@
 # Homepage for BalanceSE
 
 Made with hugo, forged with love.
+The site is live at: https://szegedkungfu.hu/
 
 Theme used: https://github.com/jpanther/congo
 
