@@ -1,11 +1,24 @@
 ---
 title: "Edzések"
-weight: 40
+weight: 10
 menu: "main"
 showDate: false
 sitemap:
   changefreq: weekly
   priority: 1.0
+tags:
+- kungfu
+- shaolin
+- szeged
+- sport
+- edzés
+- harcművészet
+- tai-chi
+- egészség
+- szeged
+- önvédelem
+- kick-box
+- küzdősport
 ---
 
 # Edzéseink helyszíne és időpontjai

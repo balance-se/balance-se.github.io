@@ -1,18 +1,31 @@
 ---
 title: "Kapcsolat"
-weight: 60
+weight: 11
 menu: "main"
 showDate: false
 sitemap:
   changefreq: weekly
   priority: 0.8
+tags:
+- kungfu
+- shaolin
+- szeged
+- sport
+- edzés
+- harcművészet
+- tai-chi
+- egészség
+- szeged
+- önvédelem
+- kick-box
+- küzdősport
 ---
 
 {{< icon email >}}  **E-mail:**
-{{< cloakemail address="balancekungfu@gmail.com" protocol="email" >}}
+balancekungfu@gmail.com
 
 {{< icon whatsapp >}}  **Telefon:**
-{{< cloakemail address="+36 20 475 0808" protocol="tel" >}}
++36 20 475 0808
 
 |              |                                |
 | ------------ | ------------------------------ |

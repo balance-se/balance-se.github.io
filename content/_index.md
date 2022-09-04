@@ -1,10 +1,23 @@
 ---
 title: "Főoldal"
-weight: 10
+weight: 100
 menu: "main"
 sitemap:
   changefreq: weekly
   priority: 0.9
+tags:
+- kungfu
+- shaolin
+- szeged
+- sport
+- edzés
+- harcművészet
+- tai-chi
+- egészség
+- szeged
+- önvédelem
+- kick-box
+- küzdősport
 ---
 # Köszöntjük oldalunkon!
 
