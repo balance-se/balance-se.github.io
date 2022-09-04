@@ -2,6 +2,9 @@
 title: "Főoldal"
 weight: 10
 menu: "main"
+sitemap:
+  changefreq: weekly
+  priority: 0.9
 ---
 # Köszöntjük oldalunkon!
 

@@ -13,7 +13,7 @@ enableSearch = false
 enableCodeCopy = false
 
 # mainSections = ["section1", "section2"]
-# robots = ""
+robots = "all"
 
 [header]
   layout = "basic" # valid options: basic, hamburger, custom

@@ -3,6 +3,9 @@ title: "Edzések"
 weight: 40
 menu: "main"
 showDate: false
+sitemap:
+  changefreq: weekly
+  priority: 1.0
 ---
 
 # Edzéseink helyszíne és időpontjai
