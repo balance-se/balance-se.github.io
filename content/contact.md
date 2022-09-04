@@ -1,6 +1,6 @@
 ---
 title: "Kapcsolat"
-weight: 60
+weight: 11
 menu: "main"
 showDate: false
 sitemap:
@@ -16,13 +16,16 @@ tags:
 - tai-chi
 - egészség
 - szeged
+- önvédelem
+- kick-box
+- küzdősport
 ---
 
 {{< icon email >}}  **E-mail:**
-{{< cloakemail address="balancekungfu@gmail.com" protocol="email" >}}
+balancekungfu@gmail.com
 
 {{< icon whatsapp >}}  **Telefon:**
-{{< cloakemail address="+36 20 475 0808" protocol="tel" >}}
++36 20 475 0808
 
 |              |                                |
 | ------------ | ------------------------------ |

@@ -1,6 +1,6 @@
 ---
 title: "Főoldal"
-weight: 10
+weight: 100
 menu: "main"
 sitemap:
   changefreq: weekly
@@ -15,6 +15,9 @@ tags:
 - tai-chi
 - egészség
 - szeged
+- önvédelem
+- kick-box
+- küzdősport
 ---
 # Köszöntjük oldalunkon!
 

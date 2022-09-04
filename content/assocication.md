@@ -1,6 +1,6 @@
 ---
 title: "Egyesület"
-weight: 20
+weight: 12
 menu: "main"
 showDate: false
 sitemap:

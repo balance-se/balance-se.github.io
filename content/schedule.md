@@ -1,6 +1,6 @@
 ---
 title: "Edzések"
-weight: 40
+weight: 10
 menu: "main"
 showDate: false
 sitemap:
@@ -16,6 +16,9 @@ tags:
 - tai-chi
 - egészség
 - szeged
+- önvédelem
+- kick-box
+- küzdősport
 ---
 
 # Edzéseink helyszíne és időpontjai
