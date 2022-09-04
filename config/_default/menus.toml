@@ -2,13 +2,3 @@
 pageRef = "/"
 identifier = "home"
 weight = 10
-
-[[footer]]
-name = "{{< icon facebook >}}  Facebook"
-url = "https://www.facebook.com/szegedkungfu"
-weight = 11
-
-[[footer]]
-name = "{{< icon discord >}}  Discord"
-url = "https://discord.gg/EfzkBT3Q9N"
-weight = 12
