@@ -2,10 +2,9 @@
 pageRef = "/"
 weight = 10
 
-# [[footer]]
-# name = "{{< icon facebook >}} Facebook"
-# url = "https://facebook.com"
-
+[[footer]]
+name = "{{< icon facebook >}} Facebook"
+url = "https://www.facebook.com/szegedkungfu"
 
 [[footer]]
 name = "{{< icon discord >}} Discord"

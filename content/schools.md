@@ -17,5 +17,3 @@ showDate: false
 
 
 A lista nem teljes, a lista a [szakszövetség által közzétett listá](https://www.hkf.hu/szervezet/egyes%C3%BCletek)ból származnak.
-
-
