@@ -5,6 +5,16 @@ menu: "main"
 sitemap:
   changefreq: weekly
   priority: 0.9
+tags:
+- kungfu
+- shaolin
+- szeged
+- sport
+- edzés
+- harcművészet
+- tai-chi
+- egészség
+- szeged
 ---
 # Köszöntjük oldalunkon!
 

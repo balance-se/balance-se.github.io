@@ -6,6 +6,16 @@ showDate: false
 sitemap:
   changefreq: weekly
   priority: 1.0
+tags:
+- kungfu
+- shaolin
+- szeged
+- sport
+- edzés
+- harcművészet
+- tai-chi
+- egészség
+- szeged
 ---
 
 # Edzéseink helyszíne és időpontjai

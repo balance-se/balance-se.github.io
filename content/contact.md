@@ -6,6 +6,16 @@ showDate: false
 sitemap:
   changefreq: weekly
   priority: 0.8
+tags:
+- kungfu
+- shaolin
+- szeged
+- sport
+- edzés
+- harcművészet
+- tai-chi
+- egészség
+- szeged
 ---
 
 {{< icon email >}}  **E-mail:**
