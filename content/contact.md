@@ -3,6 +3,9 @@ title: "Kapcsolat"
 weight: 60
 menu: "main"
 showDate: false
+sitemap:
+  changefreq: weekly
+  priority: 0.8
 ---
 
 {{< icon email >}}  **E-mail:**

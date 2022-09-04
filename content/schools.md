@@ -3,6 +3,9 @@ title: "Testvériskolák"
 weight: 50
 menu: "main"
 showDate: false
+sitemap:
+  changefreq: monthly
+  priority: 0.2
 ---
 
 
