@@ -1,5 +1,4 @@
 ---
-weight: 100
 menu: "main"
 sitemap:
   changefreq: weekly
@@ -19,5 +18,4 @@ tags:
 - küzdősport
 ---
 {{< logo >}}
-
 > Ha csak olyat csinálsz, amit tudsz, sose leszel több annál, ami most vagy.
