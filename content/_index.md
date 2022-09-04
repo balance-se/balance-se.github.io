@@ -1,5 +1,4 @@
 ---
-title: "Főoldal"
 weight: 100
 menu: "main"
 sitemap:
@@ -19,8 +18,6 @@ tags:
 - kick-box
 - küzdősport
 ---
-# Köszöntjük oldalunkon!
-
-A honlapon a szegedi Balance Kung Fu Sportegyesülettel kapcsolatos információkat osztjuk meg az érdeklődőkkel.
-
 {{< logo >}}
+
+> Ha csak olyat csinálsz, amit tudsz, sose leszel több annál, ami most vagy.

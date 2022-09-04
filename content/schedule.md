@@ -21,8 +21,6 @@ tags:
 - küzdősport
 ---
 
-# Edzéseink helyszíne és időpontjai
-
 Szegedi Tudományegyetem Sportközpont, Hattyas sor 10., tükrös terem
 
 {{< hattyas-iframe >}}

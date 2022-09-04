@@ -1,5 +1,5 @@
 ---
-title: "Egyesület"
+title: "Egyesületünk"
 weight: 12
 menu: "main"
 showDate: false
