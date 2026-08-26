@@ -12,8 +12,33 @@ autoSwitchAppearance = true
 enableSearch = false
 enableCodeCopy = false
 
+# Core Web Vitals: serve WebP, lazy-load below-the-fold images and prefetch
+# in-viewport links. All three are Congo built-ins.
+enableImageLazyLoading = true
+enableImageWebp = true
+enableQuicklink = true
+
 # mainSections = ["section1", "section2"]
 robots = "all"
+
+# Congo unions these with each page's own `keywords` front matter.
+keywords = [
+  "kung fu",
+  "shaolin kung fu",
+  "Ch'ang stílus",
+  "Szeged",
+  "harcművészet",
+  "önvédelem",
+  "küzdősport",
+  "tai chi",
+  "shuai chiao",
+  "edzés",
+  "gyerek kung fu",
+]
+
+# Fallback og:image / twitter:image for every page that does not set its own
+# `images` front matter. Relative to /static.
+images = ["img/og-image.png"]
 
 [header]
   layout = "basic" # valid options: basic, hamburger, custom
@@ -63,8 +88,14 @@ robots = "all"
   # site = "ABC12345"
   # domain = "llama.yoursite.com"
 
+# Self-hosted Umami. Congo's analytics partial is gated on hugo.IsProduction,
+# so `hugo serve` and local builds never emit the tag.
+[umamiAnalytics]
+  site = "f6884e7b-9e1a-44d9-beab-1e75442e62f6"
+  script = "https://uma.rocketfuel.pw/script.js"
+
 [verification]
   # google = ""
   # bing = ""
   # pinterest = ""
-  # yandex = "
+  # yandex = ""

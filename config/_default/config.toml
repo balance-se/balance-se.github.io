@@ -1,5 +1,31 @@
-defaultContentLanguage="hu"
+# Canonical origin. Must match CNAME — Hugo bakes it into canonical URLs,
+# og:url, sitemap.xml and robots.txt, so a wrong/missing value silently
+# publishes localhost URLs.
+baseURL = "https://szegedkungfu.hu/"
+
+defaultContentLanguage = "hu"
+
+# Congo ships a robots.txt template; Hugo only renders it when this is on.
+enableRobotsTXT = true
+
+# The tag pages were thin, near-duplicate keyword lists on an eight-page site.
+# Those terms now live in `keywords` front matter, which feeds the meta tag and
+# JSON-LD without generating crawlable low-value pages.
+disableKinds = ["taxonomy", "term"]
+
 [sitemap]
   changefreq = 'monthly'
   filename = 'sitemap.xml'
   priority = 0.5
+
+# /llms.txt — plain-text site guide for LLM crawlers. Generated from content
+# (layouts/home.llms.txt) so it cannot drift out of date.
+[outputFormats.llms]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+  # Keep it out of <link rel="alternate"> in <head>.
+  notAlternative = true
+
+[outputs]
+  home = ["html", "rss", "llms"]

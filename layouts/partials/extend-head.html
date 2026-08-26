@@ -1,1 +1,101 @@
-<meta name="keywords" content="{{ if .Params.Keywords }}{{ delimit .Params.Keywords ", " }}{{ end }}">
+{{- /*
+  Entity data for search engines and LLM crawlers.
+
+  Congo's own schema.html already emits WebSite (home) and Article (pages), so
+  this partial deliberately adds only what the theme has no concept of: the club
+  itself as a real-world local organisation — address, contact, training hours
+  and cross-platform identity. Emitted on every page so that any entry point
+  carries the entity, and built with `jsonify` rather than hand-written JSON so
+  Hungarian text and quoting are escaped correctly.
+
+  Keep the facts here in sync with content/kapcsolat.md and content/edzesek.md.
+*/ -}}
+
+{{- $base := site.Home.Permalink -}}
+{{- $orgID := printf "%s#egyesulet" $base -}}
+{{- $vezetoID := printf "%s#farkas-solymar-edit" $base -}}
+
+{{- /* Tue + Fri: general adult class. Wed: advanced / competition squad. */ -}}
+{{- $hours := slice
+  (dict "@type" "OpeningHoursSpecification" "dayOfWeek" "https://schema.org/Tuesday"   "opens" "18:00" "closes" "19:30")
+  (dict "@type" "OpeningHoursSpecification" "dayOfWeek" "https://schema.org/Wednesday" "opens" "18:00" "closes" "19:30")
+  (dict "@type" "OpeningHoursSpecification" "dayOfWeek" "https://schema.org/Friday"    "opens" "18:00" "closes" "19:30")
+-}}
+
+{{- $vezeto := dict
+  "@type" "Person"
+  "@id" $vezetoID
+  "name" "Dr. Farkas-Solymár Edit"
+  "honorificPrefix" "Dr."
+  "jobTitle" "kung fu mester instruktor, egyesületi elnök"
+  "worksFor" (dict "@id" $orgID)
+-}}
+
+{{- $org := dict
+  "@type" "SportsClub"
+  "@id" $orgID
+  "name" "Balance Kung Fu Sportegyesület"
+  "alternateName" (slice "Balance Kung Fu SE" "Balance Kung Fu Szeged")
+  "url" $base
+  "description" site.Params.description
+  "sport" (slice "Kung fu" "Shaolin kung fu" "Tai chi" "Shuai chiao" "Önvédelem")
+  "email" "balancekungfu@gmail.com"
+  "telephone" "+36204750808"
+  "foundingDate" "2013"
+  "knowsLanguage" "hu"
+  "logo" (dict "@type" "ImageObject" "url" (printf "%simg/logo.png" $base) "width" 827 "height" 827)
+  "image" (printf "%simg/og-image.png" $base)
+  "address" (dict
+    "@type" "PostalAddress"
+    "streetAddress" "Pálffy utca 13/b"
+    "addressLocality" "Szeged"
+    "postalCode" "6725"
+    "addressRegion" "Csongrád-Csanád"
+    "addressCountry" "HU")
+  "areaServed" (dict "@type" "City" "name" "Szeged")
+  "location" (dict
+    "@type" "Place"
+    "name" "SZTE Sportközpont — tükrös terem"
+    "address" (dict
+      "@type" "PostalAddress"
+      "streetAddress" "Hattyas sor 10."
+      "addressLocality" "Szeged"
+      "addressCountry" "HU"))
+  "openingHoursSpecification" $hours
+  "memberOf" (dict "@type" "SportsOrganization" "name" "Shaolin Kung Fu Association Hungary (SKAH)")
+  "employee" (dict "@id" $vezetoID)
+  "identifier" (dict "@type" "PropertyValue" "name" "Adószám" "value" "18514553-1-06")
+  "sameAs" (slice
+    "https://www.facebook.com/szegedkungfu"
+    "https://discord.gg/EfzkBT3Q9N")
+-}}
+
+<script type="application/ld+json">
+  {{ dict "@context" "https://schema.org" "@graph" (slice $org $vezeto) | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+
+{{- /*
+  FAQPage, built from the page's `faq:` front matter — the same source the
+  {{< faq >}} shortcode renders visibly, so the markup can never describe an
+  answer the page does not actually show.
+*/ -}}
+{{- with .Params.faq }}
+  {{- $items := slice -}}
+  {{- range . -}}
+    {{- $items = $items | append (dict
+      "@type" "Question"
+      "name" .q
+      "acceptedAnswer" (dict "@type" "Answer" "text" .a)) -}}
+  {{- end }}
+<script type="application/ld+json">
+  {{ dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $items | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{- end }}
+
+{{- /* Analytics lives on a separate origin; warm the connection early. */ -}}
+{{- if hugo.IsProduction }}
+  {{- with site.Params.umamiAnalytics.script }}
+    {{- $u := urls.Parse . }}
+    <link rel="preconnect" href="{{ printf "%s://%s" $u.Scheme $u.Host }}" crossorigin />
+  {{- end }}
+{{- end }}

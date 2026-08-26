@@ -8,19 +8,14 @@ showDate: false
 sitemap:
   changefreq: weekly
   priority: 0.8
-tags:
-- kungfu
-- shaolin
-- szeged
-- sport
-- edzés
-- harcművészet
-- tai-chi
-- egészség
-- szeged
-- önvédelem
-- kick-box
-- küzdősport
+description: "A Balance Kung Fu SE elérhetőségei: e-mail, telefon, székhely és adószám. Ide várjuk a jelentkezőket és az SZJA 1% felajánlásokat."
+keywords:
+- kapcsolat
+- Balance Kung Fu SE
+- Szeged
+- adószám
+- SZJA 1%
+- kung fu
 ---
 
 {{< icon email >}}  **E-mail:**

@@ -5,6 +5,14 @@ aliases:
 weight: 25
 menu: "main"
 showDate: false
+description: "A Ch'ang stílusú shaolin kung fu ötvözi az ütéseket, rúgásokat és a shuai chiao dobásait, tai chi chuannal és tzü wei shu önvédelmi technikákkal kiegészülve."
+keywords:
+- Ch'ang stílus
+- shaolin kung fu
+- shuai chiao
+- tai chi chuan
+- tzü wei shu
+- Ch'ang Tung Sheng
 ---
 {{< figure src="chang_tung_sheng.jpg" alt="Ch'ang Tung Sheng mellszobor" caption="Cha'ang Tung Sheng mellszobor" class="w-4/5" >}}
 

@@ -8,6 +8,13 @@ showDate: false
 sitemap:
   changefreq: monthly
   priority: 0.2
+description: "A Ch'ang stílusú shaolin kung fut oktató magyarországi testvériskolák listája: Szombathely, Csorna, Mosonmagyaróvár, Keszthely, Dunaújváros és Pécs."
+keywords:
+- testvériskolák
+- shaolin kung fu
+- SKAH
+- kung fu egyesületek
+- Magyarország
 ---
 
 
@@ -21,4 +28,4 @@ sitemap:
 | [SKAH Pécs SE](https://www.skahpecs.hu)                                        | Pécs            | Bornemissza Péter  |
 
 
-A lista nem teljes, a lista a [szakszövetség által közzétett listáról](https://www.hkf.hu/egyesuletek/) származnak.
+A lista nem teljes, a lista a [szakszövetség által közzétett listáról](https://www.hkf.hu/egyesuletek/) alapján készült.

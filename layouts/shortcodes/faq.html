@@ -1,0 +1,18 @@
+{{- /*
+  Renders the page's `faq:` front matter as a visible Q&A block.
+
+  The same front matter also feeds the FAQPage JSON-LD in extend-head.html, so
+  the answer a reader sees and the answer a crawler extracts are one source of
+  truth and cannot drift apart. Usage: {{< faq >}} with a `faq:` list in the
+  page's front matter, each item having `q` and `a`.
+*/ -}}
+{{- with .Page.Params.faq }}
+  <div class="faq">
+    {{- range . }}
+      <h3>{{ .q | markdownify }}</h3>
+      <p>{{ .a | markdownify }}</p>
+    {{- end }}
+  </div>
+{{- else }}
+  {{- errorf "faq shortcode used on %q but the page has no `faq:` front matter" .Page.Path }}
+{{- end }}

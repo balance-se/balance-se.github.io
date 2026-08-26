@@ -1,0 +1,9 @@
+{{- /*
+  Overrides Congo's version, which prints the raw Go time into `datetime`
+  ("2017-10-10 00:00:00 +0000 UTC") — not a valid HTML5 datetime value, so
+  parsers that read it get nothing. The visible text is unchanged.
+*/ -}}
+<time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+  {{- i18n "article.date" (dict "Date" (partial "functions/date.html" .)) | emojify -}}
+</time>
+{{- /* Trim EOF */ -}}

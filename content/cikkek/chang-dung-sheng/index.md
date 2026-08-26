@@ -3,6 +3,13 @@ title: Ch’ang Tung Sheng nagymester
 aliases:
 - /articles/chang-dung-sheng/
 date: 2017-10-10
+description: "Ch'ang Tung Sheng (1908–1986) a shuai chiao nagymestere és a Ch'ang stílusú shaolin kung fu megalkotója volt. Életútja Paotingtól Tajvanig."
+keywords:
+- Ch'ang Tung Sheng
+- shuai chiao
+- kínai birkózás
+- harcművészet története
+- repülő pillangó
 ---
 
 {{< figure src="chang-tung-scheng_pose-1.jpg" alt="Fiatal Ch'ang Tung Sheng" caption="Fiatal Cha'ang Tung Sheng" >}}

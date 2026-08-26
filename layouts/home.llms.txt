@@ -1,0 +1,41 @@
+{{- /*
+  /llms.txt — plain-text site guide for LLM crawlers.
+  Generated from real page data (titles, descriptions, permalinks) so it cannot
+  drift out of sync with the content the way a hand-maintained static file does.
+  Wired up via the `llms` output format in config/_default/config.toml.
+*/ -}}
+# {{ site.Title }}
+
+> {{ site.Params.description }}
+
+## Alapadatok
+
+- Név: Balance Kung Fu Sportegyesület (Balance Kung Fu SE)
+- Stílus: Ch'ang stílusú shaolin kung fu — pusztakezes technikák, dobások (shuai chiao), formagyakorlatok, tai chi chuan és tzü wei shu önvédelem
+- Helyszín: SZTE Sportközpont, tükrös terem — 6725 Szeged, Hattyas sor 10.
+- Edzésidők (iskolaidőben): kedd 18:00–19:30 (felnőtt), szerda 18:00–19:30 (haladó/verseny), péntek 18:00–19:30 (felnőtt)
+- Kiknek: felnőtteknek, gyerekeknek és fiataloknak; a tagfelvétel folyamatos
+- Első edzés: díjmentes, előzetes bejelentkezés nélkül látogatható
+- E-mail: balancekungfu@gmail.com
+- Telefon: +36 20 475 0808
+- Székhely: 6725 Szeged, Pálffy utca 13/b
+- Adószám: 18514553-1-06 (SZJA 1% felajánlható)
+- Egyesület alapítva: 2013 (a szegedi oktatás 2002 óta folyamatos)
+- Szakmai vezető: Dr. Farkas-Solymár Edit kung fu mester instruktor
+- Facebook: https://www.facebook.com/szegedkungfu
+- Discord: https://discord.gg/EfzkBT3Q9N
+
+## Oldalak
+{{ range (where (where site.Pages "Kind" "in" (slice "page" "section")) "Params.private" "!=" true).ByWeight }}
+{{- if .Title }}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . }}{{ end }}
+{{- end }}
+{{- end }}
+
+## Cikkek
+{{ range (where site.RegularPages "Section" "cikkek").ByDate.Reverse }}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Date }} ({{ .Format "2006-01-02" }}){{ end }}
+{{- end }}
+
+---
+{{ site.Copyright }}

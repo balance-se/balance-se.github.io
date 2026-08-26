@@ -1,12 +1,19 @@
+{{- /*
+  Google Maps embed of the training venue.
+  `loading="lazy"` keeps a third-party frame off the critical path of the site's
+  highest-intent page, and `title` is required for the frame to be announced by
+  screen readers. Explicit width/height reserve the box so the map does not
+  shift the page as it loads.
+*/ -}}
 <div style="width: 100%">
     <iframe
-        width="100%"
+        title="SZTE Sportközpont, Szeged, Hattyas sor 10. – az edzések helyszíne a térképen"
+        width="600"
         height="600"
-        frameborder="0"
-        scrolling="no"
-        marginheight="0"
-        marginwidth="0"
-        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Szegedi%20Tudom%C3%A1nyegyetem%20Sportk%C3%B6zpont,%20Hattyas%20sor%2010.+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+        style="width: 100%; border: 0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=hu&amp;q=Szegedi%20Tudom%C3%A1nyegyetem%20Sportk%C3%B6zpont,%20Hattyas%20sor%2010.+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
     >
     </iframe>
 </div>

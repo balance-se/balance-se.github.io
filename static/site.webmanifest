@@ -1,6 +1,11 @@
 {
-    "name": "Shaolin kung-fu Szeged",
-    "short_name": "Kung-fu",
+    "id": "/",
+    "name": "Balance Kung Fu SE – shaolin kung fu Szegeden",
+    "short_name": "Balance Kung Fu",
+    "description": "Ch'ang stílusú shaolin kung fu edzések Szegeden felnőtteknek és gyerekeknek.",
+    "lang": "hu-HU",
+    "start_url": "/",
+    "scope": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -16,6 +21,6 @@
         }
     ],
     "theme_color": "#ffffff",
-    "background_color": "#7c3aed",
+    "background_color": "#ffffff",
     "display": "standalone"
 }

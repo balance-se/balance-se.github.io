@@ -1,4 +1,11 @@
-[[main]]
-pageRef = "/"
-identifier = "home"
-weight = 10
+# Intentionally empty.
+#
+# Every main-menu item comes from `menu: "main"` + `weight` in the page's own
+# front matter (see Conventions in CLAUDE.md).
+#
+# There used to be a "home" entry here, plus a second one from `menu: "main"` in
+# content/_index.md — two links to "/" side by side. Both rendered with an empty
+# label, because the homepage had no `title`, so they showed up as two blank
+# clickable gaps in the nav rather than as an obvious duplicate. Giving the
+# homepage a title made them visible and very wide. Neither is needed: the site
+# title in the header is itself a link to "/".

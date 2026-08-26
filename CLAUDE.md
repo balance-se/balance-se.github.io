@@ -16,9 +16,9 @@ Static site built with **Hugo**, deployed to **GitHub Pages** at <https://szeged
 
 ```
 config/_default/     Hugo configuration (TOML, split by concern)
-  config.toml        language default + sitemap settings
+  config.toml        baseURL, language default, sitemap, robots.txt + llms.txt output
   languages.hu.toml  site title, description, copyright
-  menus.toml         only the "home" entry; other menu items come from page front matter
+  menus.toml         intentionally empty; every menu item comes from page front matter
   module.toml        imports the Congo theme module
   params.toml        Congo theme parameters (colour scheme, header/footer, article options)
 
@@ -35,18 +35,26 @@ content/             all page content (Markdown, Hungarian)
   impresszum.md      footer-only page (menu: footer)
 
 layouts/             local overrides on top of the Congo theme
+  robots.txt          overrides Congo's; names the AI crawlers explicitly
+  home.llms.txt       generates /llms.txt from real page data (see Output formats)
   partials/
-    extend-head.html    injects a keywords meta tag from front-matter Keywords
-    extend-footer.html  Facebook + Discord links in the footer
+    extend-head.html    SportsClub + Person JSON-LD, FAQPage JSON-LD, analytics preconnect
+    extend-footer.html  Facebook + Discord links in the footer (rel="me")
+    meta/date.html          overrides Congo to emit a valid ISO-8601 datetime attribute
+    meta/date-updated.html  ditto
   shortcodes/
-    logo.html           renders /img/logo.png
+    logo.html           renders /img/logo.png (homepage LCP: sized, high priority, never lazy)
     hattyas-iframe.html Google Maps embed of the training venue (SZTE Sportközpont, Hattyas sor 10.)
+    faq.html            renders the page's `faq:` front matter as visible Q&A
     cloakemail.html     obfuscated e-mail link (from hugo-cloak-email)
   _default/_markup/
-    render-link.html    render hook: external links get target=_blank rel=nofollow noopener
+    render-link.html    render hook: external links get target=_blank rel=noopener
 
 static/              copied verbatim to the site root
   img/logo.png       used by the {{< logo >}} shortcode as /img/logo.png
+  img/og-image.png   1200x630 Open Graph / Twitter card, site-wide fallback via
+                     `images` in params.toml. Generated from static/img/logo.png
+                     over a dark card; regenerate if the logo changes.
   docs/*.pdf         linked from content as /docs/...
   favicon.ico, favicon-16x16.png, favicon-32x32.png
   apple-touch-icon.png (180), android-chrome-192x192.png, android-chrome-512x512.png
@@ -68,7 +76,7 @@ i18n/hu.yaml         translation overrides — currently empty
 
 ## Conventions
 
-- **Menu order** is driven by `weight` in each page's front matter plus `menu: "main"`. `config/_default/menus.toml` only defines the home link. To add a page to the nav, set both `menu: "main"` and a `weight`.
+- **Menu order** is driven by `weight` in each page's front matter plus `menu: "main"`. To add a page to the nav, set both `menu: "main"` and a `weight`. `config/_default/menus.toml` is deliberately empty — see the nav gotcha below. The site title in the header is already a link to `/`, so the nav carries no home entry.
 - **Front matter is YAML** (`---` fenced) in content, while **config is TOML**. Common keys used here: `title`, `aliases`, `weight`, `menu`, `showDate: false`, `sitemap.changefreq`/`sitemap.priority`, `tags`, `draft`.
 - **Renaming a page requires an alias.** Slugs were migrated from English to Hungarian, and each renamed page carries its old URL in `aliases:` so inbound links and search results keep working. Hugo emits a meta-refresh redirect page at each alias and leaves aliases out of `sitemap.xml`. Current map:
 
@@ -105,16 +113,62 @@ grep -o '<loc>[^<]*</loc>' /tmp/check/sitemap.xml     # canonical URLs only, no 
 A page that renders content but weighs only a few KB has lost its frame. Sizes are a decent
 smoke test: real pages here are 14–32KB, alias stubs well under 1KB.
 
+## SEO / GEO
+
+The site is tuned for local search and for AI answer engines. The load-bearing pieces:
+
+- **`baseURL` is pinned** to `https://szegedkungfu.hu/` in `config.toml` and CI no longer passes
+  `--baseURL`. Before, the value came from `actions/configure-pages` at build time, so a local
+  `hugo` build silently baked `//localhost:1313/` into every canonical, `og:url` and `sitemap.xml`
+  entry. Keep config and `CNAME` in agreement; changing one means changing the other.
+- **Descriptions are mandatory.** Every page carries a hand-written `description` in front matter.
+  Without one Congo falls back to `.Summary`, i.e. the first ~70 words of body text cut mid-sentence.
+  Keep them unique and roughly 120-160 characters.
+- **`keywords`, not `tags`.** Taxonomies are switched off (`disableKinds` in `config.toml`) because
+  the tag lists were keyword stuffing that generated a dozen near-empty `/tags/*` pages on an
+  eight-page site. The same terms live in `keywords` front matter, which Congo unions with
+  `params.keywords` into the meta tag and the JSON-LD. Re-enabling taxonomies means deleting that
+  `disableKinds` line *and* giving the tag pages real content.
+- **Structured data is split in two.** Congo's `schema.html` emits `WebSite` (home), `Article` and
+  `BreadcrumbList`; `layouts/partials/extend-head.html` adds what the theme has no concept of — the
+  club as a real-world `SportsClub` with address, phone, training hours and `sameAs` profiles, plus
+  a `Person` for the club leader. **The facts in that partial are duplicated from
+  `content/kapcsolat.md` and `content/edzesek.md` — change one, change the other.** It is built with
+  `jsonify` rather than hand-written JSON so Hungarian text escapes correctly.
+- **FAQ content and FAQ schema share one source.** A page's `faq:` front matter (a list of `q`/`a`)
+  is rendered visibly by `{{< faq >}}` and emitted as `FAQPage` JSON-LD by `extend-head.html`.
+  Never hand-write one without the other — markup describing an answer the page does not show is a
+  structured-data violation. Currently used on `edzesek.md`.
+- **`/llms.txt`** is a custom Hugo output format (`llms` in `config.toml`, template
+  `layouts/home.llms.txt`). It lists key club facts and every page with its description, generated
+  from real page data so it cannot go stale. `notAlternative = true` keeps it out of `<head>`.
+- **`/robots.txt`** needs `enableRobotsTXT = true` — without it Hugo ignores the template entirely
+  and the file 404s, which is how it stood for years. The override names GPTBot, ClaudeBot,
+  PerplexityBot and friends explicitly.
+- **External links are not `nofollow`.** They point at sister clubs, the national federation and a
+  university staff page; the previous blanket `nofollow` in `render-link.html` threw away the topical
+  association those citations earn. The club's own Facebook/Discord links carry `rel="me"`, matching
+  the `sameAs` list in the JSON-LD.
+- **Analytics** is self-hosted Umami, configured through Congo's native `[umamiAnalytics]` param
+  (`site` + a `script` override for the custom host) rather than a hand-rolled `<script>` tag. Congo
+  gates it behind `hugo.IsProduction`, so `hugo serve` never sends events; a plain `hugo` build does,
+  since Hugo defaults that to the production environment.
+- **Site `description` must be set twice** in `languages.hu.toml`: the top-level key feeds Hugo core
+  (RSS), the `[params]` one feeds Congo's head and schema partials. With only the top-level key —
+  the state this repo was in — Congo rendered no site description at all.
+
 ## Gotchas
 
 - **Congo v1.6.4 → v2 was forced by a Hugo upgrade.** The old theme used `.Site.Author`, which Hugo deprecated in 0.124 and *removed* in 0.146, so any modern Hugo failed with `can't evaluate field Author in type page.Site`. Congo v2's own `module.toml` claims `min = "0.87.0"` — that is wrong; v2 does not build on anything near it.
 - **Bumping `HUGO_VERSION` in CI also means fixing the download URL.** Hugo renamed its release assets: the old `hugo_extended_<v>_Linux-64bit.deb` 404s on current versions, which now ship as `hugo_extended_<v>_linux-amd64.deb`.
 - **Hugo 0.146 restructured template lookup, which can wake dormant overrides.** A `layouts/single.html` had sat in this repo for years doing nothing — pre-0.146 Hugo only looked for `layouts/_default/single.html`, so Congo's template rendered every page. After the upgrade `layouts/single.html` became a valid lookup path, took over, and — having no `{{ define "main" }}` — rendered every page with no base template: content but no `<html>`, no CSS, no nav or footer. It was deleted. If a page ever loses its "frame" again, suspect a project template that lacks `{{ define "main" }}`.
+- **A menu entry with no label is invisible, not absent.** The nav used to contain *two* links to `/` — one from a `[[main]]` entry in `menus.toml`, one from `menu: "main"` in `content/_index.md`. Because the homepage had no `title`, Congo rendered both with an empty label, so they showed up as two blank clickable gaps rather than as an obvious duplicate. Giving the homepage a `title` for SEO made them appear at full width and wrecked the header. Both were removed. If the nav ever looks subtly off, count the `<li>` elements rather than trusting the visible labels.
 - The theme's own layout paths moved too (`layouts/_partials/`, `layouts/_markup/`). The old `layouts/partials/`, `layouts/shortcodes/` and `layouts/_default/_markup/` locations in this repo still resolve, and all four remaining overrides were verified working after the upgrade.
 
 ## Known gaps
 
-- `static/site.webmanifest` still carries Congo's sample `background_color` of `#7c3aed` (purple), which Android uses for the splash screen behind the white-background app icon. It matches neither the `fire` colour scheme nor the icons. Cosmetic, deliberately left alone.
+- The homepage `<title>` is just the site title. Congo hardcodes `.Site.Title` for `.IsHome`, ignoring the page's own `title` front matter (which still feeds `og:title`). Fixing it properly means overriding the whole 150-line `head.html`, which is not worth the maintenance; the alternative is lengthening `title` in `languages.hu.toml`, but that is also the visible brand in the nav.
+- Congo's `head.html` wraps the `description` meta content in template whitespace, so it renders with leading and trailing newlines inside the attribute. Harmless — every consumer collapses whitespace — but it is why the tag looks oddly formatted in the built HTML.
 - The `deploy` job in `main.yml` is indented with 5 spaces where the rest of the file uses 6. Valid YAML, inherited from the original GitHub sample workflow.
 
 ## Branches

@@ -8,19 +8,34 @@ showDate: false
 sitemap:
   changefreq: weekly
   priority: 1.0
-tags:
-- kungfu
-- shaolin
-- szeged
-- sport
-- edzés
+description: "Kung fu edzések Szegeden: kedd, szerda, péntek 18:00–19:30, SZTE Sportközpont, Hattyas sor 10. Az első edzés díjmentes, a tagfelvétel folyamatos."
+faq:
+- q: "Kell-e előzetes tapasztalat a kezdéshez?"
+  a: "Nem. A tagfelvétel folyamatos, és a közös bemelegítés után övfokozat szerinti csoportbontásban gyakorolunk, így mindenki a saját tudásszintjének és képességeinek megfelelő terhelést kapja."
+- q: "Mennyibe kerül az első edzés?"
+  a: "Az első edzés díjmentes. Utána a Mesterrel lehet egyeztetni a további lépésekről és lehetőségekről."
+- q: "Mit vigyek magammal az első edzésre?"
+  a: "Egy hosszú nadrág és egy sötét, rövidujjú póló elegendő. Az edzések mezítláb zajlanak. Hagyományos öltözetünk sötét, bővebb szabású hosszú nadrág és fekete, rövidujjú póló az SKAH logójával, de ez kezdetben nem követelmény."
+- q: "Hol vannak az edzések?"
+  a: "A Szegedi Tudományegyetem Sportközpontjában, a Hattyas sor 10. alatti tükrös teremben."
+- q: "Mikor vannak az edzések?"
+  a: "Iskolaidőben kedden és pénteken 18:00 és 19:30 között tartunk felnőtt edzést, szerdán 18:00 és 19:30 között pedig haladó, illetve versenyfelkészítő edzést."
+- q: "Járhatnak-e gyerekek is edzésre?"
+  a: "Igen, évek óta foglalkozunk kisebb-nagyobb gyerekekkel, és jelentős utánpótlás-bázist alakítottunk ki. A gyermeked életkorával kapcsolatban keress minket bizalommal a megadott elérhetőségeken."
+- q: "Kötelező-e versenyezni?"
+  a: "Nem. Ugyanolyan értékes tagja a csapatnak az is, aki csak edzésekre jár, a maga örömére gyakorol és fejlődik."
+keywords:
+- kung fu
+- shaolin kung fu
+- Szeged
 - harcművészet
-- tai-chi
-- egészség
-- szeged
 - önvédelem
-- kick-box
 - küzdősport
+- edzés
+- tai chi
+- kung fu edzés Szeged
+- gyerek kung fu
+- edzésidőpontok
 ---
 
 Szegedi Tudományegyetem Sportközpont, Hattyas sor 10., tükrös terem
@@ -59,3 +74,7 @@ A kung-fu egyik legnagyobb szépsége, hogy a szorgalmas, rendszeres munka mindi
 Közhely, de igaz: minden gyerek egyéniség, van, aki már kisiskolásként rendelkezik azokkal a tulajdonságokkal – fegyelem, figyelem, koncentrációs képesség -, amelyek a kung-fu magasabb szintű gyakorlásához szükségesek. Ők, csatlakozhatnak a felnőttekhez és sok gyakorlás után, megfelelő elhivatottság esetén a versenyzői karrier felé is kacsintgathatnak.
 
 Nem hiszünk abban, hogy mindenkinek versenyzőnek kell lennie. Nagyon örülünk, ha valaki felfedezi magában azt az eltökéltséget, monotóniatűrést, szorgalmat, ami erre a nem ritkán lemondásokat igénylő útra irányítja, de az is ugyanolyan értékes tagja lehet a csapatunknak, aki  „csupán” edzésekre jár és velünk gyakorol, a maga örömére edz, fejlődik.
+
+## Gyakori kérdések
+
+{{< faq >}}

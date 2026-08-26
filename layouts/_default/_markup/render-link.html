@@ -1,4 +1,12 @@
+{{- /*
+  External links open in a new tab with `noopener` for safety.
+
+  They are deliberately NOT `nofollow`: the outbound links here point at sister
+  clubs, the national federation and a university staff page — genuine, relevant
+  citations. Passing them nofollow discarded the topical association those links
+  earn, and it also applied to the club's own profiles.
+*/ -}}
 <a href="{{ .Destination | safeURL }}"
-  {{ with .Title}} title="{{ . }}"{{ else }} title="{{ .Text | safeHTML }}" {{ end }}
-  {{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="nofollow noopener"{{ end }}>
+  {{ with .Title }} title="{{ . }}"{{ else }} title="{{ .Text | safeHTML }}" {{ end }}
+  {{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>
   {{ .Text | safeHTML }}</a>

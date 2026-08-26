@@ -1,3 +1,15 @@
+{{- /*
+  Homepage hero, and therefore the LCP element: never lazy-loaded, given an
+  explicit intrinsic size so it cannot cause layout shift, and fetched at high
+  priority. The alt text describes the club rather than saying "logo".
+*/ -}}
 <div class="w-4/5">
-    <img src="/img/logo.png" alt="Egyesületi logó" class="m-auto">
+    <img
+        src="/img/logo.png"
+        alt="Balance Kung Fu SE – szegedi shaolin kung fu egyesület logója"
+        width="827"
+        height="827"
+        fetchpriority="high"
+        decoding="async"
+        class="m-auto">
 </div>

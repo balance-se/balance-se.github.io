@@ -1,3 +1,23 @@
-title="Balance Kung Fu SE - Szeged"
-description="A szegedi Balance Kung Fu Sportegyesülettel kapcsolatos információk."
-copyright="Minden jog fenntartva © Balance Kung Fu SE."
+locale = "hu-HU"
+label = "Magyar"
+direction = "ltr"
+weight = 1
+
+title = "Balance Kung Fu SE - Szeged"
+copyright = "Minden jog fenntartva © Balance Kung Fu SE."
+
+# Hugo core (RSS channel description) reads the top-level key; Congo's head and
+# schema partials read the [params] one. Both are set on purpose — with only the
+# top-level key, Congo silently rendered no site description at all.
+description = "Ch'ang stílusú shaolin kung fu edzések Szegeden felnőtteknek és gyerekeknek. Heti három edzés az SZTE Sportközpontban, az első alkalom ingyenes."
+
+[params]
+  description = "Ch'ang stílusú shaolin kung fu edzések Szegeden felnőtteknek és gyerekeknek. Heti három edzés az SZTE Sportközpontban, az első alkalom ingyenes."
+
+# Populates <meta name="author">, the JSON-LD publisher and the article byline.
+# Without it Congo emits an empty author name into every schema block.
+[params.author]
+  name = "Balance Kung Fu SE"
+  links = [
+    { facebook = "https://www.facebook.com/szegedkungfu" },
+  ]

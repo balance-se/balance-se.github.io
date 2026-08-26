@@ -1,2 +1,8 @@
-<a href="https://www.facebook.com/szegedkungfu" target="_blank" rel="nofollow noopener" class=".m-0">{{ partial "icon.html" "facebook" }}  Facebook</a>
-<a href="https://discord.gg/EfzkBT3Q9N" target="_blank" rel="nofollow noopener" class=".m-0">{{ partial "icon.html" "discord" }}  Discord</a>
+{{- /*
+  The club's own profiles. `rel="me"` ties this domain to those accounts as one
+  entity — the cross-platform signal that search and AI systems use to confirm
+  an organisation is who it says it is. They are followed, not nofollowed:
+  these are our own pages, matching the sameAs list in extend-head.html.
+*/ -}}
+<a href="https://www.facebook.com/szegedkungfu" target="_blank" rel="me noopener" class=".m-0">{{ partial "icon.html" "facebook" }}  Facebook</a>
+<a href="https://discord.gg/EfzkBT3Q9N" target="_blank" rel="me noopener" class=".m-0">{{ partial "icon.html" "discord" }}  Discord</a>
