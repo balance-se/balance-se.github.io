@@ -1,5 +1,7 @@
 ---
 title: Ch’ang Tung Sheng nagymester
+aliases:
+- /articles/chang-dung-sheng/
 date: 2017-10-10
 ---
 

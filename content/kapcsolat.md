@@ -1,5 +1,7 @@
 ---
 title: "Kapcsolat"
+aliases:
+- /contact/
 weight: 11
 menu: "main"
 showDate: false
@@ -39,4 +41,4 @@ balancekungfu@gmail.com
 Ha még nem rendelkeztél az személyi jövedelem adód 1%-áról, a leggyorsabban itt tudod megtenni:
 https://eszja.nav.gov.hu/app/#dashboard
 
-Ahogyan azt a mondás is tartja: sok kicsi sokra megy; Köszönjük, hogy hozzájárulsz az egyesület működéstetéséhez!
+Ahogyan azt a mondás is tartja: sok kicsi sokra megy; Köszönjük, hogy hozzájárulsz az egyesület működéséhez!

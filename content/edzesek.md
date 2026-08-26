@@ -1,5 +1,7 @@
 ---
 title: "Edzések"
+aliases:
+- /schedule/
 weight: 10
 menu: "main"
 showDate: false
@@ -28,9 +30,10 @@ Szegedi Tudományegyetem Sportközpont, Hattyas sor 10., tükrös terem
 ## Időpontok
 |                        | Kedd          | Szerda        | Péntek        |
 | ---------------------- | ------------- | ------------- | ------------- |
-| **Gyermek**            | 17:00 - 18:00 |               | 17:00 - 18:00 |
 | **Felnőtt**            | 18:00 - 19:30 |               | 18:00 - 19:30 |
-| **Küzdelmi / verseny** |               | 18:00 - 19:30 |               |
+| **Haladó / verseny** |               | 18:00 - 19:30 |               |
+
+ > *Iskolaidőben
 
 ## Szükséges felszerelés
 
@@ -53,6 +56,6 @@ A kung-fu egyik legnagyobb szépsége, hogy a szorgalmas, rendszeres munka mindi
 ## Gyermekeknek és fiataloknak
 Évek óta foglalkozunk kisebb-nagyobb gyerekekkel, és büszkék vagyunk arra, hogy mostanra egyesületünk jelentős utánpótlás-bázist alakított ki.
 
-Közhely, de igaz: minden gyerek egyéniség, van, aki már óvodásként vagy kisiskolásként rendelkezik azokkal a tulajdonságokkal – fegyelem, figyelem, koncentrációs képesség -, amelyek a kung-fu magasabb szintű gyakorlásához szükségesek. Ők, amennyiben szeretnék, egy idő után csatlakozhatnak a felnőttekhez és sok gyakorlás után, megfelelő elhivatottság esetén a versenyzői karrier felé is kacsingathatnak.
+Közhely, de igaz: minden gyerek egyéniség, van, aki már kisiskolásként rendelkezik azokkal a tulajdonságokkal – fegyelem, figyelem, koncentrációs képesség -, amelyek a kung-fu magasabb szintű gyakorlásához szükségesek. Ők, csatlakozhatnak a felnőttekhez és sok gyakorlás után, megfelelő elhivatottság esetén a versenyzői karrier felé is kacsintgathatnak.
 
 Nem hiszünk abban, hogy mindenkinek versenyzőnek kell lennie. Nagyon örülünk, ha valaki felfedezi magában azt az eltökéltséget, monotóniatűrést, szorgalmat, ami erre a nem ritkán lemondásokat igénylő útra irányítja, de az is ugyanolyan értékes tagja lehet a csapatunknak, aki  „csupán” edzésekre jár és velünk gyakorol, a maga örömére edz, fejlődik.

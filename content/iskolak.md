@@ -1,5 +1,7 @@
 ---
 title: "Testvériskolák"
+aliases:
+- /schools/
 weight: 50
 menu: "main"
 showDate: false
@@ -19,4 +21,4 @@ sitemap:
 | [SKAH Pécs SE](https://www.skahpecs.hu)                                        | Pécs            | Bornemissza Péter  |
 
 
-A lista nem teljes, a lista a [szakszövetség által közzétett listá](https://www.hkf.hu/szervezet/egyes%C3%BCletek)ból származnak.
+A lista nem teljes, a lista a [szakszövetség által közzétett listáról](https://www.hkf.hu/egyesuletek/) származnak.

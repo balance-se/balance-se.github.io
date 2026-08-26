@@ -1,5 +1,7 @@
 ---
 title: "Cikkek"
+aliases:
+- /articles/
 weight: 40
 menu: "main"
 layout: simple

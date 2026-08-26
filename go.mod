@@ -1,5 +1,5 @@
 module github.com/balance-se/homepage
 
-go 1.19
+go 1.26.5
 
-require github.com/jpanther/congo v1.6.4 // indirect
+require github.com/jpanther/congo/v2 v2.14.0 // indirect
