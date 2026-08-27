@@ -1,0 +1,69 @@
+{{ define "main" }}
+  {{/*
+    Homepage (Congo's homepage.layout = "custom" in params.toml routes here).
+    All copy and image references live in content/_index.md front matter so the
+    club can edit them without touching the template. Styling comes from
+    assets/css/custom.css, which Congo loads on every page.
+
+    Image paths point into assets/, not static/: they are the prepared masters
+    from scripts/prepare-photos.sh, and partials/photo.html resizes each into a
+    srcset at build time. Each master is already cropped to its slot's aspect
+    ratio, so the `sizes` values below just need to match what the CSS does.
+  */}}
+  <div class="bkf-home">
+    {{ with .Params.hero }}
+      <section class="bkf-hero">
+        <div class="bkf-hero__text">
+          <h1>{{ .title }}</h1>
+          <p class="bkf-lead">{{ .lead }}</p>
+          <div class="bkf-cta">
+            {{ with .primaryCta }}<a class="bkf-btn" href="{{ .url }}">{{ .label }}</a>{{ end }}
+            {{ with .secondaryCta }}<a class="bkf-btn-text" href="{{ .url }}">{{ .label }} &rarr;</a>{{ end }}
+          </div>
+        </div>
+        {{ with .image }}
+          {{ partial "photo.html" (dict
+            "src" .src
+            "alt" .alt
+            "class" "bkf-hero__photo"
+            "sizes" "(min-width: 1024px) 33rem, (min-width: 768px) 52vw, 100vw"
+            "loading" "eager"
+            "fetchpriority" "high")
+          }}
+        {{ end }}
+      </section>
+    {{ end }}
+
+    {{ with .Params.gallery }}
+      <section class="bkf-gallery">
+        <div class="bkf-gallery__head">
+          <h2>{{ .heading }}</h2>
+          {{ with .subheading }}<span>{{ . }}</span>{{ end }}
+        </div>
+        {{ with .images }}
+          <div class="bkf-gallery__grid">
+            {{ range . }}
+              {{ partial "photo.html" (dict
+                "src" .src
+                "alt" .alt
+                "sizes" "(min-width: 1024px) 21rem, (min-width: 768px) 32vw, 100vw")
+              }}
+            {{ end }}
+          </div>
+        {{ end }}
+        {{ with .wide }}
+          {{ partial "photo.html" (dict
+            "src" .src
+            "alt" .alt
+            "class" "bkf-gallery__wide"
+            "sizes" "(min-width: 1024px) 64rem, 100vw")
+          }}
+        {{ end }}
+      </section>
+    {{ end }}
+
+    {{ with .Content }}
+      <section class="prose max-w-full dark:prose-invert">{{ . | emojify }}</section>
+    {{ end }}
+  </div>
+{{ end }}

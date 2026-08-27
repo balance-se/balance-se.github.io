@@ -42,6 +42,10 @@ images = ["img/og-image.png"]
 
 [header]
   layout = "basic" # valid options: basic, hamburger, custom
+  # Resolved from assets/ by Congo's logo.html and published verbatim, so this must
+  # NOT be named img/logo.png -- that path is owned by static/img/logo.png (the
+  # homepage hero + the JSON-LD ImageObject) and the assets copy would shadow it.
+  logo = "img/logo-nav.png"
 
 [footer]
   showCopyright = true

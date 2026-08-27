@@ -3,7 +3,7 @@ label = "Magyar"
 direction = "ltr"
 weight = 1
 
-title = "Balance Kung Fu SE - Szeged"
+title = "Balance Kung Fu SE Szeged"
 copyright = "Minden jog fenntartva © Balance Kung Fu SE."
 
 # Hugo core (RSS channel description) reads the top-level key; Congo's head and

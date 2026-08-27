@@ -1,0 +1,15 @@
+{{/*
+  A note that belongs to the block directly above it.
+
+  Goldmark's `[^1]` footnotes are collected into a single endnote list at the
+  very bottom of the page — on a long page that lands nowhere near the table
+  the note qualifies. This renders the note in place instead.
+
+  The marker is decorative: repeat the same character on the thing being
+  annotated (e.g. `## Időpontok*`). Styled by `.bkf-footnote` in
+  assets/css/custom.css.
+
+    {{< footnote >}}Iskolaidőben{{< /footnote >}}
+    {{< footnote "†" >}}Másik megjegyzés.{{< /footnote >}}
+*/ -}}
+<p class="bkf-footnote" role="doc-footnote"><span class="bkf-footnote__marker" aria-hidden="true">{{ .Get 0 | default "*" }}</span>{{ .Inner | strings.TrimSpace | markdownify }}</p>

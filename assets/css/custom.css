@@ -1,0 +1,248 @@
+/* -- Balance Kung Fu SE — homepage (1b) --
+   Congo loads assets/css/custom.css automatically (see the theme's head.html),
+   so nothing here depends on the theme's compiled Tailwind build. Colours come
+   from the active colour scheme's CSS variables (assets/css/schemes/fire.css). */
+
+/* Congo caps the header logo at 10rem via a Tailwind utility class. `header nav
+   img` loses to it on specificity (0,0,3 vs 0,1,0) no matter the source order,
+   so the attribute selector is load-bearing: it lifts this to (0,1,1). */
+header nav img[class] {
+    max-height: 3rem;
+    max-width: 3rem;
+}
+
+.bkf-home {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* -- Hero -- */
+.bkf-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.bkf-hero__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.bkf-hero h1 {
+    margin: 0;
+    /* Fluid rather than fixed, because the headline's widest word,
+       "Sportközpontban", is a single unbreakable 15-character run: at any fixed
+       size there is a viewport narrow enough for it to run off the edge. The
+       clamp ceilings are set from that word, not from the line. */
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+    line-height: 1.08;
+    font-weight: 800;
+    text-wrap: balance;
+    color: rgba(var(--color-neutral-900), 1);
+}
+
+.bkf-lead {
+    margin: 0;
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    max-width: 36ch;
+    color: rgba(var(--color-neutral-600), 1);
+}
+
+.bkf-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.25rem;
+}
+
+.bkf-btn,
+.bkf-btn-text {
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.375rem;
+}
+
+.bkf-btn {
+    padding: 0.8125rem 1.375rem;
+    background: rgba(var(--color-neutral-900), 1);
+    color: rgba(var(--color-neutral), 1);
+}
+
+.bkf-btn:hover {
+    background: rgba(var(--color-primary-600), 1);
+}
+
+.bkf-btn-text {
+    padding: 0.8125rem 0.25rem;
+    color: rgba(var(--color-primary-700), 1);
+}
+
+.bkf-btn-text:hover {
+    text-decoration: underline;
+}
+
+/* `photo.html` wraps every image in <picture>, so the <picture> is what the
+   grid and flex containers lay out and the <img> simply fills it. Do not be
+   tempted by `display: contents` here: it promotes the <source> elements to
+   layout items alongside the <img> and scatters the gallery across the grid. */
+.bkf-home picture {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    /* A hairline keeps the photos from bleeding into the page background, and
+       the fill holds their shape while the image is still on the wire. */
+    background-color: rgba(var(--color-neutral-200), 1);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.bkf-home picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Each master is cropped to exactly the ratio of its slot (see
+   scripts/prepare-photos.sh), so these declarations reserve the right box
+   before the image arrives rather than re-cropping it. */
+.bkf-hero__photo {
+    aspect-ratio: 3 / 2;
+}
+
+/* -- Gallery -- */
+.bkf-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.bkf-gallery__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.bkf-gallery__head h2 {
+    margin: 0;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: rgba(var(--color-neutral-900), 1);
+}
+
+.bkf-gallery__head span {
+    font-size: 0.9375rem;
+    color: rgba(var(--color-neutral-500), 1);
+}
+
+/* One column on phones. Two would leave the third photo orphaned on a row of
+   its own at half width, and three would shrink faces past recognising. */
+.bkf-gallery__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.bkf-gallery__grid picture {
+    aspect-ratio: 4 / 3;
+}
+
+.bkf-gallery__wide {
+    aspect-ratio: 16 / 7;
+}
+
+/* -- Quote -- */
+.bkf-quote {
+    margin: 0;
+    padding-left: 0.875rem;
+    border-left: 3px solid rgba(var(--color-primary-200), 1);
+    font-style: italic;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: rgba(var(--color-neutral-600), 1);
+}
+
+@media (min-width: 768px) {
+    .bkf-hero {
+        /* minmax(0, …) rather than a bare 1fr: an fr track keeps an automatic
+           min-content floor, and "Sportközpontban" set at 3.25rem is wide
+           enough to push through it and steal width from the photo. */
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        gap: 3rem;
+        padding-top: 1.5rem;
+    }
+    .bkf-hero h1 {
+        /* The two-column switch at 768px makes the text column narrower than
+           the phone layout it replaces, so this starts *below* the size above
+           and grows back with the viewport. It stops at 3rem: the container
+           caps at 64rem, so past that width the column stops growing too. */
+        font-size: clamp(2rem, 3.4vw, 3rem);
+    }
+    .bkf-gallery__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* -- In-place footnote ({{< footnote >}}) -- */
+/* Sits directly under the table or section it qualifies. Prose puts 2em under a
+   table; the negative margin collapses against that (largest positive + most
+   negative) down to ~12px, so the note reads as attached to the block above it
+   rather than as the next paragraph. */
+.bkf-footnote {
+    margin-top: -1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: rgba(var(--color-neutral-500), 1);
+}
+
+.bkf-footnote__marker {
+    padding-inline-end: 0.35em;
+}
+
+/* -- Dark appearance -- */
+.dark .bkf-hero h1,
+.dark .bkf-gallery__head h2 {
+    color: rgba(var(--color-neutral-50), 1);
+}
+
+.dark .bkf-lead,
+.dark .bkf-quote {
+    color: rgba(var(--color-neutral-300), 1);
+}
+
+.dark .bkf-fact dd {
+    color: rgba(var(--color-neutral-200), 1);
+}
+
+.dark .bkf-btn {
+    background: rgba(var(--color-neutral-200), 1);
+    color: rgba(var(--color-neutral-900), 1);
+}
+
+.dark .bkf-btn:hover {
+    background: rgba(var(--color-primary-400), 1);
+}
+
+.dark .bkf-btn-text {
+    color: rgba(var(--color-primary-400), 1);
+}
+
+
+.dark .bkf-footnote {
+    color: rgba(var(--color-neutral-400), 1);
+}
+
+.dark .bkf-home picture {
+    background-color: rgba(var(--color-neutral-700), 1);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}

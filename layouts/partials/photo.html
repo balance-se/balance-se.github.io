@@ -1,0 +1,63 @@
+{{/*
+  Responsive photo, used by the homepage (layouts/home.html).
+
+  Takes an asset under assets/ — the prepared masters written by
+  scripts/prepare-photos.sh — and emits a <picture> with a WebP source and a
+  JPEG fallback, each with a srcset the browser picks from.
+
+  Every master is already cropped to the exact aspect ratio of the slot it goes
+  in, so this only ever scales; it never crops. That is deliberate: art
+  direction happens once, in the prep script, where it can be judged by eye.
+
+  Params:
+    src            asset path, e.g. "img/kozosseg/edzok.jpg"   (required)
+    alt            alt text                                     (required)
+    sizes          the CSS `sizes` attribute                    (required)
+    class          class for the <picture> — it, not the <img>, is the grid
+                   or flex item, so layout rules hang off the wrapper
+    loading        "lazy" (default) or "eager"
+    fetchpriority  "high" for the LCP image
+*/}}
+{{- $img := resources.Get .src -}}
+{{- if not $img -}}
+  {{- errorf "partials/photo.html: no asset at %q" .src -}}
+{{- end -}}
+
+{{- /* Cap at the master's own width — upscaling a phone snapshot helps nobody.
+       1600 covers the widest slot (the full-width band) on a 1.5x display; a
+       master narrower than that still gets offered at its full size so phones
+       at 3x are not served something soft. */ -}}
+{{- $widths := slice -}}
+{{- range (slice 400 640 900 1280 1600) -}}
+  {{- if le . $img.Width -}}{{- $widths = $widths | append . -}}{{- end -}}
+{{- end -}}
+{{- if lt $img.Width 1600 -}}
+  {{- $widths = $widths | append $img.Width | uniq | sort -}}
+{{- end -}}
+
+{{- $jpg := slice -}}
+{{- $webp := slice -}}
+{{- $fallback := "" -}}
+{{- range $widths -}}
+  {{- $j := $img.Resize (printf "%dx q82 Lanczos" .) -}}
+  {{- $w := $img.Resize (printf "%dx webp q80 Lanczos" .) -}}
+  {{- $jpg = $jpg | append (printf "%s %dw" $j.RelPermalink $j.Width) -}}
+  {{- $webp = $webp | append (printf "%s %dw" $w.RelPermalink $w.Width) -}}
+  {{- /* Fallback src for anything that ignores srcset: the largest under 1000px. */ -}}
+  {{- if le . 1000 -}}{{- $fallback = $j.RelPermalink -}}{{- end -}}
+{{- end -}}
+{{- if not $fallback -}}{{- $fallback = (index $jpg 0 | strings.Split " " | index 0) -}}{{- end -}}
+
+<picture{{ with .class }} class="{{ . }}"{{ end }}>
+  <source type="image/webp" srcset="{{ delimit $webp ", " }}" sizes="{{ .sizes }}" />
+  <img
+    src="{{ $fallback }}"
+    srcset="{{ delimit $jpg ", " }}"
+    sizes="{{ .sizes }}"
+    width="{{ $img.Width }}"
+    height="{{ $img.Height }}"
+    alt="{{ .alt }}"
+    loading="{{ .loading | default "lazy" }}"
+    decoding="async"
+    {{ with .fetchpriority }}fetchpriority="{{ . }}"{{ end }} />
+</picture>

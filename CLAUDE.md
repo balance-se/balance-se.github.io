@@ -35,9 +35,12 @@ content/             all page content (Markdown, Hungarian)
   impresszum.md      footer-only page (menu: footer)
 
 layouts/             local overrides on top of the Congo theme
+  home.html           the homepage (params.toml sets homepage.layout = "custom");
+                      all its copy and photo references come from _index.md front matter
   robots.txt          overrides Congo's; names the AI crawlers explicitly
   home.llms.txt       generates /llms.txt from real page data (see Output formats)
   partials/
+    photo.html          responsive <picture> for the homepage photos — see Photos below
     extend-head.html    SportsClub + Person JSON-LD, FAQPage JSON-LD, analytics preconnect
     extend-footer.html  Facebook + Discord links in the footer (rel="me")
     meta/date.html          overrides Congo to emit a valid ISO-8601 datetime attribute
@@ -63,10 +66,20 @@ static/              copied verbatim to the site root
   site.webmanifest   PWA manifest; its icon list must match the filenames above
 
 assets/              Hugo Pipes / theme asset lookups
+  css/custom.css          homepage styling; Congo loads it on every page
+  img/kozosseg/*.jpg      prepared masters for the homepage photos — generated,
+                          do not retouch by hand (see Photos below)
   img/logo_complete.svg   textless logo; SOURCE for the generated app icons above
   img/silhouette-{1,2,3}.svg, font/blowbrush.otf
                      Design sources kept deliberately but NOT wired into the site yet.
                      Do not "clean up" as unused — they are staged brand assets.
+
+photos/original/     untouched camera files behind assets/img/kozosseg/. Outside
+                     assets/ and static/, so Hugo never publishes them; they exist
+                     only so the crops stay re-derivable.
+
+scripts/
+  prepare-photos.sh  crops and grades photos/original/ into assets/img/kozosseg/
 
 i18n/hu.yaml         translation overrides — currently empty
 .github/workflows/
@@ -156,6 +169,31 @@ The site is tuned for local search and for AI answer engines. The load-bearing p
 - **Site `description` must be set twice** in `languages.hu.toml`: the top-level key feeds Hugo core
   (RSS), the `[params]` one feeds Congo's head and schema partials. With only the top-level key —
   the state this repo was in — Congo rendered no site description at all.
+
+## Photos
+
+The homepage photos are club phone snapshots, and they go through two stages
+before they reach a visitor.
+
+- **`scripts/prepare-photos.sh` does the darkroom work**, reading
+  `photos/original/` and writing `assets/img/kozosseg/`. Per photo it applies a
+  hand-picked crop and a grade (white-balance nudge, S-curve contrast, a little
+  saturation and unsharp). Both are tabulated at the top of the script; edit
+  there and re-run, never retouch the output. The originals are wide-angle
+  frames with a lot of ceiling and empty mat — the crops are most of the win.
+- **Each master is cropped to the exact aspect ratio of its slot** — 3:2 hero,
+  4:3 gallery thumbs, 16:7 full-width band — matching the `aspect-ratio` rules
+  in `custom.css`. That is what keeps `object-fit: cover` from silently
+  re-cropping a photo at some breakpoint and taking somebody's head off. Change
+  one of those ratios and you must change the other.
+- **`layouts/partials/photo.html` handles delivery**, resizing each master into
+  a WebP + JPEG `srcset` at build time. Its `sizes` strings are the template's
+  only claim about layout, so they have to track `custom.css`; get them wrong
+  and the browser picks the wrong file. Serving the originals unresized, as this
+  page did at first, cost 1.6 MB against roughly 220 KB now.
+- **The photos live in `assets/`, not `static/`.** Hugo's image processing only
+  works on `assets/`, and only files it actually processes get published — which
+  is also why `photos/original/` can sit in the repo without shipping.
 
 ## Gotchas
 

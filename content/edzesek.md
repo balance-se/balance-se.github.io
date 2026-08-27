@@ -42,13 +42,13 @@ Szegedi Tudományegyetem Sportközpont, Hattyas sor 10., tükrös terem
 
 {{< hattyas-iframe >}}
 
-## Időpontok
+## Időpontok*
 |                        | Kedd          | Szerda        | Péntek        |
 | ---------------------- | ------------- | ------------- | ------------- |
 | **Felnőtt**            | 18:00 - 19:30 |               | 18:00 - 19:30 |
 | **Haladó / verseny** |               | 18:00 - 19:30 |               |
 
- > *Iskolaidőben
+{{< footnote >}}Iskolaidőben{{< /footnote >}}
 
 ## Szükséges felszerelés
 
