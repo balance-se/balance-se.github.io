@@ -14,7 +14,21 @@
     {{ with .Params.hero }}
       <section class="bkf-hero">
         <div class="bkf-hero__text">
-          <h1>{{ .title }}</h1>
+          {{/*
+            `keepTogether` lists phrases that must never be split across lines.
+            Each listed phrase has its own spaces swapped for U+00A0 so the
+            browser treats it as one word; the front matter keeps ordinary
+            spaces, so the copy stays greppable and editable. `text-wrap:
+            balance` in custom.css then balances what is left around them.
+            "Shaolin Kung Fu" is 15 characters, the same length as
+            "Sportközpontban" -- the word the h1's clamp ceiling was already
+            sized from -- so joining it adds no new overflow risk.
+          */}}
+          {{- $heading := .title -}}
+          {{- range .keepTogether -}}
+            {{- $heading = replace $heading . (replace . " " "\u00a0") -}}
+          {{- end }}
+          <h1>{{ $heading }}</h1>
           <p class="bkf-lead">{{ .lead }}</p>
           <div class="bkf-cta">
             {{ with .primaryCta }}<a class="bkf-btn" href="{{ .url }}">{{ .label }}</a>{{ end }}

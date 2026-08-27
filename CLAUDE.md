@@ -36,13 +36,20 @@ content/             all page content (Markdown, Hungarian)
 
 layouts/             local overrides on top of the Congo theme
   home.html           the homepage (params.toml sets homepage.layout = "custom");
-                      all its copy and photo references come from _index.md front matter
+                      all its copy and photo references come from _index.md front matter,
+                      including hero.keepTogether — phrases whose spaces become U+00A0
+                      so the h1 never splits them ("Shaolin Kung Fu")
   robots.txt          overrides Congo's; names the AI crawlers explicitly
   home.llms.txt       generates /llms.txt from real page data (see Output formats)
   partials/
+    logo.html           overrides Congo's: sets the site title in the header in two lines
+                        ("Balance Kung Fu SE" / "Szeged"). NOT the {{< logo >}} shortcode
+                        below — same filename, different lookup directory.
     photo.html          responsive <picture> for the homepage photos — see Photos below
     extend-head.html    SportsClub + Person JSON-LD, FAQPage JSON-LD, analytics preconnect
-    extend-footer.html  Facebook + Discord links in the footer (rel="me")
+    extend-footer.html  the footer's last row: Facebook + Discord (rel="me") on the
+                        left, the Hugo/Congo colophon pushed right. Congo's own
+                        attribution is off (footer.showThemeAttribution)
     meta/date.html          overrides Congo to emit a valid ISO-8601 datetime attribute
     meta/date-updated.html  ditto
   shortcodes/
@@ -66,7 +73,7 @@ static/              copied verbatim to the site root
   site.webmanifest   PWA manifest; its icon list must match the filenames above
 
 assets/              Hugo Pipes / theme asset lookups
-  css/custom.css          homepage styling; Congo loads it on every page
+  css/custom.css          homepage + footer styling; Congo loads it on every page
   img/kozosseg/*.jpg      prepared masters for the homepage photos — generated,
                           do not retouch by hand (see Photos below)
   img/logo_complete.svg   textless logo; SOURCE for the generated app icons above
@@ -197,6 +204,12 @@ before they reach a visitor.
 
 ## Gotchas
 
+- **Congo's Tailwind is precompiled, so you cannot invent utility classes in an override.** `head.html` bundles `css/compiled/main.css` straight out of the module — there is no Tailwind pass over this repo's `layouts/`. Only the utilities the theme itself uses exist; `gap-4`, `ms-auto` and friends are simply not in the file and silently do nothing. This had already bitten once: `extend-footer.html` carried `class=".m-0"` (note the leading dot) for years with no effect and no warning. Style overrides with real rules in `assets/css/custom.css` instead — it is concatenated into the same bundle — and check before reaching for a utility:
+
+  ```sh
+  grep -c '\.gap-4' ~/.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/jpanther/congo/v2@v2.14.0/assets/css/compiled/main.css
+  ```
+- **`layout: simple` on a section `_index.md` silently deletes the article list.** Congo's `simple.html` renders only `.Title` and `.Content`; unlike `list.html` it never ranges `.Data.Pages`, so it emits no `article-link.html` at all — and no warning. `content/cikkek/_index.md` carried it from the day the section was created, so `/cikkek/` showed its intro paragraph and nothing else while the articles themselves built fine and were reachable by direct URL. Use `simple` for standalone pages only. Assert on the output: `grep -c '<article' public/cikkek/index.html` must be at least the number of published articles.
 - **Congo v1.6.4 → v2 was forced by a Hugo upgrade.** The old theme used `.Site.Author`, which Hugo deprecated in 0.124 and *removed* in 0.146, so any modern Hugo failed with `can't evaluate field Author in type page.Site`. Congo v2's own `module.toml` claims `min = "0.87.0"` — that is wrong; v2 does not build on anything near it.
 - **Bumping `HUGO_VERSION` in CI also means fixing the download URL.** Hugo renamed its release assets: the old `hugo_extended_<v>_Linux-64bit.deb` 404s on current versions, which now ship as `hugo_extended_<v>_linux-amd64.deb`.
 - **Hugo 0.146 restructured template lookup, which can wake dormant overrides.** A `layouts/single.html` had sat in this repo for years doing nothing — pre-0.146 Hugo only looked for `layouts/_default/single.html`, so Congo's template rendered every page. After the upgrade `layouts/single.html` became a valid lookup path, took over, and — having no `{{ define "main" }}` — rendered every page with no base template: content but no `<html>`, no CSS, no nav or footer. It was deleted. If a page ever loses its "frame" again, suspect a project template that lacks `{{ define "main" }}`.

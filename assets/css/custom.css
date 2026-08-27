@@ -11,6 +11,84 @@ header nav img[class] {
     max-width: 3rem;
 }
 
+/* The site title is rendered as two spans by layouts/partials/logo.html so that
+   "Szeged" always drops to a second line instead of pushing the header text up
+   against the main menu. Congo styles that anchor inline, so it needs to become
+   a block container before the spans can stack. The markup keeps a real space
+   between them: if this file ever fails to load the title still reads
+   "Balance Kung Fu SE Szeged" on one line rather than running together. */
+.bkf-sitetitle {
+    display: inline-block;
+}
+
+.bkf-sitetitle > span {
+    display: block;
+    /* Must equal the menu items' line-height below -- see the alignment note. */
+    line-height: 1.5;
+}
+
+/* Only wide headers can afford to hold line one together. The anchor is a flex
+   item in Congo's `flex flex-row items-center` wrapper, so `nowrap` raises its
+   min-content width to the whole of "Balance Kung Fu SE" and flex's default
+   `min-width: auto` then refuses to shrink it -- which on a phone starves the
+   menu beside it and pushes it off-screen. 64rem is the width Congo's container
+   caps at, so above it the header stops getting narrower and the reservation is
+   always affordable; below it the two lines still stack, they may just wrap
+   further, exactly as the single-line title used to. The same threshold guards
+   the gap, because `justify-between` only separates the title from the first
+   menu item while free space is left over.
+
+   75rem, not the 64rem container cap: with line one held together the header's
+   intrinsic width measures 1146px, so anything narrower than ~1183 overflows
+   and clips the last menu item -- which is exactly what a 64rem threshold did.
+   Re-measure this if the menu or the club name ever changes length:
+     hugo --destination out && serve out
+     chrome --headless --window-size=W,300 --dump-dom .../probe.html
+   comparing document.documentElement.scrollWidth against clientWidth. */
+@media (min-width: 75rem) {
+    .bkf-sitetitle {
+        margin-inline-end: 1.25rem;
+    }
+
+    .bkf-sitetitle > span {
+        white-space: nowrap;
+    }
+}
+
+/* Congo's nav centres its two flex items -- the logo/title block and the menu --
+   against each other, so whichever is taller decides where the shorter one
+   sits. With the title on two lines and the menu on one the first lines land at
+   different heights (measured: title line one at y=47.3, first menu link at
+   y=43.0) and the header reads as two rows that do not line up. Top-align both
+   and give the title's lines and the menu's items the same line box, so
+   "Balance Kung Fu SE" and "Edzések" share a line by construction rather than
+   by whatever the two blocks happen to measure. 40rem is Congo's `sm:`, the
+   width at which the menu becomes a row and the question starts to apply.
+
+   The [class] attribute selectors are load-bearing for the same reason as the
+   logo rule above: Congo sets these with Tailwind utility classes, and a plain
+   type selector loses to a class no matter the source order. */
+@media (min-width: 40rem) {
+    header nav[class],
+    header nav > div[class] {
+        align-items: flex-start;
+    }
+
+    header nav > ul li {
+        line-height: 1.5;
+    }
+
+    /* Six Hungarian labels are wider than the header from ~1183px down, and a
+       nowrap flex row has nowhere to put the overflow: it ran off the right
+       edge, taking "Testvériskolák" with it (at 768px the header measured 974px
+       against 753px of viewport). Wrapping keeps every item on screen and
+       reachable; justify-content keeps the block hard against the right. */
+    header nav > ul {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+}
+
 .bkf-home {
     display: flex;
     flex-direction: column;
@@ -245,4 +323,51 @@ header nav img[class] {
 .dark .bkf-home picture {
     background-color: rgba(var(--color-neutral-700), 1);
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+
+/* -- Footer -------------------------------------------------------------- */
+
+/* Laid out by hand rather than with Tailwind: Congo's main.css is precompiled
+   and shipped in the module, so only the utilities the theme itself uses exist.
+   gap-* and ms-auto are not among them. */
+.bkf-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    column-gap: 1.5rem;
+    row-gap: 0.5rem;
+}
+
+.bkf-footer-social a + a {
+    margin-inline-start: 1.25rem;
+}
+
+/* The theme credit: a mark, not a sentence. One step smaller and one step more
+   muted than the copyright above it, so it reads as a technical footnote.
+   `margin-inline-start: auto` holds it right even when it wraps onto its own
+   line, and the padding clears Congo's floating scroll-to-top button — the same
+   3.5rem of end-clearance the theme gives its own appearance switcher (`me-14`).
+   Drop the padding if footer.showScrollToTop is ever turned off. */
+.bkf-colophon {
+    margin-inline-start: auto;
+    padding-inline-end: 3.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgba(var(--color-neutral-400), 1);
+}
+
+.bkf-colophon a:hover {
+    color: rgba(var(--color-primary-500), 1);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.dark .bkf-colophon {
+    color: rgba(var(--color-neutral-500), 1);
+}
+
+.dark .bkf-colophon a:hover {
+    color: rgba(var(--color-primary-400), 1);
 }

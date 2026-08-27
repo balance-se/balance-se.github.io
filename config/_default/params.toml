@@ -49,7 +49,12 @@ images = ["img/og-image.png"]
 
 [footer]
   showCopyright = true
-  showThemeAttribution = true
+  # Congo's own attribution renders as a second paragraph under the copyright and
+  # uses its Hungarian i18n string "Működteti Hugo & Congo" -- a literal rendering
+  # of "Powered by" that reads as machine translation. The credit is kept, but
+  # rebuilt as a minimal mark in extend-footer.html, where the wording and the
+  # placement are ours. Congo is MIT, so nothing here is licence-mandated.
+  showThemeAttribution = false
   showAppearanceSwitcher = true
   showScrollToTop = true
 

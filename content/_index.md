@@ -15,6 +15,9 @@ keywords:
 - tai chi
 hero:
   title: "Shaolin Kung Fu az SZTE Sportközpontban 2002 óta"
+  # Phrases the h1 must never break across lines (see layouts/home.html).
+  keepTogether:
+  - "Shaolin Kung Fu"
   lead: "Ch'ang stílusú Kung Fu kicsiknek-nagyoknak, erőseknek, erősíteni vágyóknak és bárkinek aki törekszik a test-szellem összhangjára."
   primaryCta:
     label: "Az első edzés ingyenes"

@@ -1,0 +1,54 @@
+{{/*
+  Overrides Congo's _partials/logo.html for one reason: the site title is set in
+  two visual lines ("Balance Kung Fu SE" / "Szeged") so it stops crowding the
+  main menu on wide screens. Everything above the title block is the theme's
+  code, unchanged.
+
+  The two lines are derived from .Site.Title -- the last word drops to line two
+  -- so there is no second copy of the club name to keep in sync, and <title>,
+  og:title and the JSON-LD keep the single-line string. The .bkf-sitetitle rules
+  live in assets/css/custom.css.
+*/}}
+{{- if .Site.Params.header.logo }}
+  {{- $logo := resources.Get .Site.Params.header.logo }}
+  {{- $logo_dark := resources.Get .Site.Params.header.logoDark }}
+  {{- if $logo }}
+    <a href="{{ "" | relLangURL }}" class="mr-2">
+      <!-- prettier-ignore-attribute -->
+      <img
+        src="{{ $logo.Permalink }}"
+        width="{{ div $logo.Width 2 }}"
+        height="{{ div $logo.Height 2 }}"
+        class="max-h-[10rem] max-w-[10rem] object-scale-down object-left
+        {{ if $logo_dark }}dark:hidden flex{{ end }}"
+        alt="{{ .Site.Title }}"
+      />
+      {{- if $logo_dark }}
+        <img
+          src="{{ $logo_dark.Permalink }}"
+          width="{{ div $logo_dark.Width 2 }}"
+          height="{{ div $logo_dark.Height 2 }}"
+          class="hidden max-h-[10rem] max-w-[10rem] object-scale-down object-left dark:flex"
+          alt="{{ .Site.Title }}"
+        />
+      {{- end }}
+    </a>
+  {{- end }}
+{{- end }}
+{{- if .Site.Params.header.showTitle | default true }}
+  {{- $words := split .Site.Title " " -}}
+  {{- $n := len $words -}}
+  <a
+    class="bkf-sitetitle decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="{{ "" | relLangURL }}"
+    >
+    {{- if gt $n 1 -}}
+      <span>{{ delimit (first (sub $n 1) $words) " " | markdownify | emojify }}</span>
+      <span>{{ index $words (sub $n 1) | markdownify | emojify }}</span>
+    {{- else -}}
+      <span>{{ .Site.Title | markdownify | emojify }}</span>
+    {{- end -}}
+  </a
+  >
+{{- end }}

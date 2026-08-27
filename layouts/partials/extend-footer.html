@@ -1,8 +1,25 @@
 {{- /*
-  The club's own profiles. `rel="me"` ties this domain to those accounts as one
-  entity — the cross-platform signal that search and AI systems use to confirm
-  an organisation is who it says it is. They are followed, not nofollowed:
-  these are our own pages, matching the sameAs list in extend-head.html.
+  The footer's last row: the club's own profiles on the left, the theme colophon
+  pushed to the right. Both are laid out by .bkf-footer-links in custom.css --
+  Congo ships a *precompiled* Tailwind bundle, so utilities the theme itself never
+  uses (gap-*, ms-auto) are simply absent from main.css and cannot be used here.
+
+  The profile links carry `rel="me"`: it ties this domain to those accounts as one
+  entity -- the cross-platform signal that search and AI systems use to confirm an
+  organisation is who it says it is. They are followed, not nofollowed: these are
+  our own pages, matching the sameAs list in extend-head.html.
+
+  The Hugo/Congo credit replaces Congo's built-in one (footer.showThemeAttribution
+  is off in params.toml); see the comment there for why.
 */ -}}
-<a href="https://www.facebook.com/szegedkungfu" target="_blank" rel="me noopener" class=".m-0">{{ partial "icon.html" "facebook" }}  Facebook</a>
-<a href="https://discord.gg/EfzkBT3Q9N" target="_blank" rel="me noopener" class=".m-0">{{ partial "icon.html" "discord" }}  Discord</a>
+<div class="bkf-footer-links">
+  <div class="bkf-footer-social">
+    <a href="https://www.facebook.com/szegedkungfu" target="_blank" rel="me noopener">{{ partial "icon.html" "facebook" }}  Facebook</a>
+    <a href="https://discord.gg/EfzkBT3Q9N" target="_blank" rel="me noopener">{{ partial "icon.html" "discord" }}  Discord</a>
+  </div>
+  <p class="bkf-colophon">
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    <span aria-hidden="true">&middot;</span>
+    <a href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+  </p>
+</div>
