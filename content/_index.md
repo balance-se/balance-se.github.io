@@ -26,7 +26,7 @@ hero:
     src: "img/kozosseg/edzes-terem.jpg"
     alt: "Edzés az SZTE Sportközpont tükrös termében"
 gallery:
-  heading: "Ez a közösség"
+  heading: "Pillanatképek"
   subheading: "Edzések, övvizsgák, táborok, versenyek"
   images:
   - src: "img/kozosseg/edzok.jpg"
