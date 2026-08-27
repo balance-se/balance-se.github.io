@@ -73,7 +73,10 @@ static/              copied verbatim to the site root
   site.webmanifest   PWA manifest; its icon list must match the filenames above
 
 assets/              Hugo Pipes / theme asset lookups
-  css/custom.css          homepage + footer styling; Congo loads it on every page
+  css/custom.css          homepage, header and footer styling; Congo loads it on
+                          every page. The header rules carry measured pixel widths
+                          in their comments -- re-measure if a menu label or the
+                          club name changes length
   img/kozosseg/*.jpg      prepared masters for the homepage photos — generated,
                           do not retouch by hand (see Photos below)
   img/logo_complete.svg   textless logo; SOURCE for the generated app icons above

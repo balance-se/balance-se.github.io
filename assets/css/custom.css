@@ -82,10 +82,30 @@ header nav img[class] {
        nowrap flex row has nowhere to put the overflow: it ran off the right
        edge, taking "Testvériskolák" with it (at 768px the header measured 974px
        against 753px of viewport). Wrapping keeps every item on screen and
-       reachable; justify-content keeps the block hard against the right. */
+       reachable; justify-content keeps the block hard against the right.
+
+       The menu never fits on one line -- the container caps at 1024px and six
+       items measure 803px against the ~749px the title leaves them -- so the
+       only question is where it breaks. Uncapped it breaks badly: from 1120px
+       up the row took five items and left "Testvériskolák" alone underneath.
+       Capping the list forces the break one item earlier, so the second row
+       always carries a pair. The width is measured, not guessed -- cumulative
+       item widths including the me-7 gutters are
+
+         Edzések 110.3  Kapcsolat 126.5  Egyesületünk 164.1
+         Ch'ang stílus 158.1  Cikkek 95.4  Testvériskolák 149.2
+         => four items 559.0px, five items 654.4px
+
+       so any cap inside 559-654px yields 4 + 2. 38rem sits mid-band, ~46px
+       clear of taking a fifth item and ~49px clear of dropping to three, which
+       is the tolerance that absorbs a font-rendering difference. Re-measure and
+       re-centre this if a menu label is added, removed or renamed:
+         header nav ul li -> width + marginInlineStart + marginInlineEnd
+       Below 40rem the list is a column and none of this applies. */
     header nav > ul {
         flex-wrap: wrap;
         justify-content: flex-end;
+        max-width: 38rem;
     }
 }
 

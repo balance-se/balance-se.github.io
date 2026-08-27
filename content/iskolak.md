@@ -28,4 +28,4 @@ keywords:
 | [SKAH Pécs SE](https://www.skahpecs.hu)                                        | Pécs            | Bornemissza Péter  |
 
 
-A lista nem teljes, a lista a [szakszövetség által közzétett listáról](https://www.hkf.hu/egyesuletek/) alapján készült.
+A lista nem teljes, a [szakszövetség által közzétett adatok](https://www.hkf.hu/egyesuletek/) alapján készült.
